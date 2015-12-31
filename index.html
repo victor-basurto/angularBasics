@@ -3,19 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-
-	<!-- AngularJS -->
+	<link rel="stylesheet" href="./css/style.css">
 	<!--<script src="./bower_components/angular/angular.js"></script>-->
-	<script src="./js/angular1-4-9.js"></script>
-
+	<script src="./js/angular1-4-9.js"></script><!-- AngularJS -->
 	<!-- custom js -->
 	<script src="./js/controllers.js"></script>
-
-	<link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-
-	
 	<!-- Main View -->
 	<div class="main" ng-controller = "MyController">
 		<!-- Search Area -->
@@ -49,7 +43,7 @@
 				<img ng-src="./images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
 				<div class="info">
 					<!-- Name of artist -->
-					<h2>{{ item.name }}</h2>
+					<h2>{{ item.name | uppercase }}</h2>
 					<h3>{{ item.reknown }}</h3>
 				</div>
 			</li>
