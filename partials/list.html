@@ -26,13 +26,15 @@
 	<!-- Artist Section -->
 	<ul class="artistlist">
 		<!-- pull artist from external data.json and filter each element -->
-		<li class="artist cf" ng-repeat="item in artist | filter: query | orderBy: artistOrder: direction">
-			<img ng-src="./images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
-			<div class="info">
-				<!-- Name of artist -->
-				<h2>{{ item.name | uppercase }}</h2>
-				<h3>{{ item.reknown }}</h3>
-			</div><!-- ./ info -->
+		<li ng-animate="'animate'" class="artist cf" ng-repeat="item in artists | filter: query | orderBy: artistOrder: direction">
+			<a href="#/details/{{ artists.indexOf(item) }}">
+				<img ng-src="./images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
+				<div class="info">
+					<!-- Name of artist -->
+					<h2>{{ item.name | uppercase }}</h2>
+					<h3>{{ item.reknown }}</h3>
+				</div><!-- ./ info -->
+			</a>
 		</li><!-- ./ artist cf -->
 	</ul><!-- ./ artist-list -->
 </section> <!-- ./ artist-page -->
