@@ -1,0 +1,38 @@
+<!-- Search Area -->
+<section class="artistpage">
+	<div class="search">
+		<h1>Artist Directory</h1>
+		<label>search: </label>
+		<input ng-model="query" placeholder="search for artist" autofocus> 
+		
+		<!-- Search By -->
+		<label class="formgroup">by:
+			<select ng-model="artistOrder">
+				<option value="name">Name</option>
+				<option value="reknown">Reknown</option>
+			</select><!-- ./ artistOrder -->
+		</label><!-- ./ formgroup -->
+		
+		<!-- Ascending and Descending -->
+		<label class="formgroup">
+			<input type="radio" ng-model="direction" name="direction" checked>
+			ascending
+		</label><!-- ./ formgroup -->
+		<label class="formgroup">
+			<input type="radio" ng-model="direction" name="direction" value="reverse">
+			descending
+		</label><!-- ./ fromgroup -->
+	</div><!-- ./ search -->
+	<!-- Artist Section -->
+	<ul class="artistlist">
+		<!-- pull artist from external data.json and filter each element -->
+		<li class="artist cf" ng-repeat="item in artist | filter: query | orderBy: artistOrder: direction">
+			<img ng-src="./images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
+			<div class="info">
+				<!-- Name of artist -->
+				<h2>{{ item.name | uppercase }}</h2>
+				<h3>{{ item.reknown }}</h3>
+			</div><!-- ./ info -->
+		</li><!-- ./ artist cf -->
+	</ul><!-- ./ artist-list -->
+</section> <!-- ./ artist-page -->

@@ -1,54 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="./css/style.css">
 	<!--<script src="./bower_components/angular/angular.js"></script>-->
-	<script src="./js/angular1-4-9.js"></script><!-- AngularJS -->
+	<script src="./js/libs/angular1-4-9.js"></script><!-- AngularJS -->
+	<script src="./js/libs/angular-route.min.js"></script><!-- AngularJS Routes -->
 	<!-- custom js -->
+	<script src="./js/app.js"></script>
 	<script src="./js/controllers.js"></script>
 </head>
 <body>
 	<!-- Main View -->
-	<div class="main" ng-controller = "MyController">
-		<!-- Search Area -->
-		<div class="search">
-			<h1>Artist Directory</h1>
-			<label>search: </label>
-			<input ng-model="query" placeholder="search for artist" autofocus> 
-			
-			<!-- Search By -->
-			<label class="formgroup">by:
-				<select ng-model="artistOrder">
-					<option value="name">Name</option>
-					<option value="reknown">Reknown</option>
-				</select>
-			</label>
-			
-			<!-- Ascending and Descending -->
-			<label class="formgroup">
-				<input type="radio" ng-model="direction" name="direction" checked>
-				ascending
-			</label>
-			<label class="formgroup">
-				<input type="radio" ng-model="direction" name="direction" value="reverse">
-				descending
-			</label>
-		</div>
-		<!-- Artist Section -->
-		<ul class="artistlist">
-			<!-- pull artist from external data.json and filter each element -->
-			<li class="artist cf" ng-repeat="item in artist | filter: query | orderBy: artistOrder: direction">
-				<img ng-src="./images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
-				<div class="info">
-					<!-- Name of artist -->
-					<h2>{{ item.name | uppercase }}</h2>
-					<h3>{{ item.reknown }}</h3>
-				</div>
-			</li>
-		</ul>
-	</div>
+	<div class="main" ng-view></div><!-- ./ main -->
 
 
 </body>

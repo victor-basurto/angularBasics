@@ -1,7 +1,10 @@
 // Angular Module
-var myNameSpace = angular.module('myApp', []);
+var artistController = angular.module('artistController', []);
 
-myNameSpace.controller('MyController', ['$scope', '$http', function($scope, $http) {
+/**
+ * Controllers Settings
+ */
+artistController.controller('ListController', ['$scope', '$http', function($scope, $http) {
 	/**
 	 * This might not work on Chrome, because of the protocol
 	 * disable chrome protocols to accept http request from 
