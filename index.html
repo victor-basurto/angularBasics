@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- AngularJS -->
+	<!--<script src="./bower_components/angular/angular.js"></script>-->
+	<script src="./js/angular1-4-9.js"></script>
+
+	<!-- custom js -->
+	<script src="./js/controllers.js"></script>
+
+	<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+	
+	<!-- this is the view -->
+	<div class="main" ng-controller = "MyController">
+		<div class="search">
+			<h1>Artist Directory</h1>
+			<label for="">search: </label>
+			<input ng-model="query" placeholder="search for artist" autofocus> 
+
+			<label class="formgroup">by:
+				<select ng-model="artistOrder">
+					<option value="name">Name</option>
+					<option value="reknown">Reknown</option>
+				</select>
+			</label>
+
+			<label class="formgroup">
+				<input type="radio" ng-model="direction" name="direction" checked>
+				ascending
+			</label>
+			<label class="formgroup">
+				<input type="radio" ng-model="direction" name="direction" value="reverse">
+				descending
+			</label>
+		</div>
+		<ul class="artistlist">
+			<li class="artist cf" ng-repeat="item in artist | filter: query | orderBy: artistOrder: direction">
+				<img ng-src="./images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
+				<div class="info">
+					<h2>{{ item.name }}</h2>
+					<h3>{{ item.reknown }}</h3>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+</body>
+</html>
